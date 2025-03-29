@@ -6,15 +6,36 @@ const typeDefs = `#graphql
     title: String
     author: String
   }
+  type client {
+    id: ID
+    name: String
+    email: String
+  }
 
   type Query {
     books: [Book]
+    clients: [client]
   }
+
 
   type Mutation {
     addBook(title: String!, author: String!): Book
+    addClient(name: String!, email: String!): client
   }
 `;
+
+const clients = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'VH4dX@example.com',
+  },
+  {
+    id: 2,
+    name: 'Jane Doe',
+    email: '3oZdI@example.com',
+  }
+];
 
 const books = [
   {
@@ -30,12 +51,18 @@ const books = [
 const resolvers = {
   Query: {
     books: () => books,
+    clients: () => clients,
   },
   Mutation: {
     addBook: (_, { title, author }) => {
       const newBook = { title, author };
       books.push(newBook);
       return newBook;
+    },
+    addClient: (_, { name, email }) => {
+      const newClient = { id: clients.length + 1, name, email };
+      clients.push(newClient);
+      return newClient;
     },
   },
 };
