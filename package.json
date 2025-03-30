@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " node --experimental-strip-types src/index.ts",
-    "dev": " node --watch --env-file .env --experimental-strip-types src/index.ts"
+    "dev": " tsx --watch src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,12 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.11.3",
-    "graphql": "^16.10.0"
+    "class-validator": "^0.14.1",
+    "graphql": "^16.10.0",
+    "reflect-metadata": "^0.2.2",
+    "type-graphql": "2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.3"
   }
 }
