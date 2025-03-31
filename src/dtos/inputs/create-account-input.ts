@@ -8,6 +8,4 @@ export class CreateAccountInput {
   @Field(() => String)
   email: string;
 
-  @Field(() => String)
-  id: string;
 }

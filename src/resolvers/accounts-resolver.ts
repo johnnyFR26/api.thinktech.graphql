@@ -1,16 +1,6 @@
-import { Query, Resolver, ObjectType, Field, Mutation } from "type-graphql";
-
-@ObjectType()
-class Account {
-  @Field(() => String) // Especificando explicitamente o tipo GraphQL
-  id: string;
-
-  @Field(() => String)
-  name: string;
-
-  @Field(() => String)
-  email: string;
-}
+import { Query, Resolver, Mutation, Args, Arg } from "type-graphql";
+import { Account } from "../dtos/models/account-model";
+import { CreateAccountInput } from "../dtos/inputs/create-account-input";
 
 @Resolver()
 export class AccountsResolver {
@@ -25,9 +15,10 @@ export class AccountsResolver {
     return this.accounts;
   }
 
+  // Corrigido para especificar explicitamente o tipo do argumento
   @Mutation(() => Account)
-  async createAccount(name: string, email: string): Promise<Account> {
-    const account = { id: String(this.accounts.length + 1), name, email };
+  async createAccount(@Arg("data", () => CreateAccountInput) data: CreateAccountInput){
+    const account = { id: String(this.accounts.length + 1), name: data.name, email: data.email };
     this.accounts.push(account);
     return account;
   }

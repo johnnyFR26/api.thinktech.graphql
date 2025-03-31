@@ -1,5 +1,5 @@
-import { startStandaloneServer } from '@apollo/server/standalone';
 import "reflect-metadata"
+import { startStandaloneServer } from '@apollo/server/standalone';
 import { ApolloServer } from "@apollo/server";
 import { buildSchema } from "type-graphql";
 import { AccountsResolver } from "./resolvers/accounts-resolver";
