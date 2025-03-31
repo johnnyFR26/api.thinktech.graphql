@@ -2,11 +2,11 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import "reflect-metadata"
 import { ApolloServer } from "@apollo/server";
 import { buildSchema } from "type-graphql";
-import { AppointmentsResolver } from "./resolvers/appointments-resolver";
+import { AccountsResolver } from "./resolvers/accounts-resolver";
 
 const schema = await buildSchema({
   resolvers: [
-    AppointmentsResolver,
+    AccountsResolver,
   ],
 })
 async function main() {
