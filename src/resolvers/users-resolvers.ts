@@ -27,4 +27,14 @@ export class UsersResolver {
         })
         return user
     }
+
+    @Mutation(() => User)
+    async deleteUser(@Arg("id", () => Number) id: number){
+        const user = await db.user.delete({
+            where: {
+                id
+            }
+        })
+        return user
+    }
 }
