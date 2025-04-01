@@ -4,6 +4,7 @@ import { ApolloServer } from "@apollo/server";
 import { buildSchema } from "type-graphql";
 import { AccountsResolver } from "./resolvers/accounts-resolver";
 
+
 const schema = await buildSchema({
   resolvers: [
     AccountsResolver,

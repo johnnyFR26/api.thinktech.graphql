@@ -14,8 +14,10 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.11.3",
+    "@prisma/client": "^6.5.0",
     "class-validator": "^0.14.1",
     "graphql": "^16.10.0",
+    "prisma": "^6.5.0",
     "reflect-metadata": "^0.2.2",
     "type-graphql": "2.0.0-rc.2"
   },
