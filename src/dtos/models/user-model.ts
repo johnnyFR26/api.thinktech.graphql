@@ -2,7 +2,7 @@ import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class User {
-    @Field(() => String) // Explicitly specifying the GraphQL type
+    @Field(() => Number) // Explicitly specifying the GraphQL type
     id: string;
 
     @Field(() => String)
