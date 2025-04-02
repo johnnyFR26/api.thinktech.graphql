@@ -13,6 +13,19 @@ export class UsersResolver {
         return users
     }
 
+    @Query(() => User)
+    async getUser(@Arg("id", () => Number) id: number){
+        const user = await db.user.findUnique({
+            where: {
+                id
+            }
+        })
+        if(!user){
+            throw new Error("User not found")
+        }
+        return user
+        }
+
     @Mutation(() => User)
     async createUser(@Arg("data", () => CreateUserInput) data: CreateUserInput){
         data.password = await bcrypt.hash(data.password, 10)
