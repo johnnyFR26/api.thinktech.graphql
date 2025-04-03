@@ -1,23 +1,24 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, ID, ObjectType } from "type-graphql";
+import { Account } from "./account-model";
 
 @ObjectType()
 export class User {
-    @Field(() => Number) // Explicitly specifying the GraphQL type
-    id: string;
+    @Field(() => ID)
+    id: number;
 
-    @Field(() => String)
+    @Field()
     name: string;
 
-    @Field(() => String)
+    @Field()
     email: string;
 
-    @Field(() => String)
+    @Field()
     password: string;
 
-    @Field(() => String)
+    @Field()
     phone: string;
 
-    @Field(() => String)
+    @Field()
     cpf: string;
 
     @Field(() => Date)
@@ -25,4 +26,7 @@ export class User {
 
     @Field(() => Date)
     updatedAt: Date;
+
+    @Field(() => Account, { nullable: true })
+    account?: Account;
 }
