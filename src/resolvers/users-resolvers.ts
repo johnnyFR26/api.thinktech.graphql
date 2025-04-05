@@ -17,9 +17,16 @@ export class UsersResolver {
     async getUser(@Arg("id", () => Number) id: number){
         const user = await db.user.findUnique({
             where: {
-                id
+              id
+            },
+            include: {
+              account: {
+                include: {
+                  transactions: true
+                }
+              }
             }
-        })
+          })
         if(!user){
             throw new Error("User not found")
         }
