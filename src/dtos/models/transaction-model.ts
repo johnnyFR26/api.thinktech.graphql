@@ -1,6 +1,6 @@
-import { TransactionType } from "@prisma/client";
 import { Field, Float, ID, ObjectType } from "type-graphql";
 import { Account } from "./account-model";
+import { TransactionType } from "../enums";
 
 @ObjectType()
 export class Transaction {
@@ -13,10 +13,10 @@ export class Transaction {
     @Field(() => TransactionType)
     type: TransactionType;
 
-    @Field()
+    @Field(() => String)
     destination: string;
 
-    @Field()
+    @Field(() => String)
     description: string;
 
     @Field(() => Date)

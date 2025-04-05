@@ -1,11 +1,14 @@
-import { Field, InputType } from "type-graphql";
+import { Field, ID, InputType } from "type-graphql";
+import { Currency } from "../enums";
 
 @InputType()
 export class CreateAccountInput {
-  @Field(() => String)
-  name: string;
+  @Field(() => Number)
+  currentValue: number;
 
-  @Field(() => String)
-  email: string;
+  @Field(() => Currency)
+  currency: Currency;
 
+  @Field(() => Number)
+  userId: number;
 }

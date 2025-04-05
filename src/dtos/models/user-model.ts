@@ -6,19 +6,19 @@ export class User {
     @Field(() => ID)
     id: number;
 
-    @Field()
+    @Field(() => String)
     name: string;
 
-    @Field()
+    @Field(() => String)
     email: string;
 
-    @Field()
+    @Field(() => String)
     password: string;
 
-    @Field()
+    @Field(() => String)
     phone: string;
 
-    @Field()
+    @Field(() => String)
     cpf: string;
 
     @Field(() => Date)
